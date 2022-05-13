@@ -3,7 +3,7 @@
     "title": "Social Row",
     "category": "widgets",
     "icon": "smiley",
-    "parents": ["create-block/giveaway"],
+    "parent": ["create-block/giveaway"],
     "description": "Add a social media row Giveaway Block",
     "textdomain": "giveaway-social-row",
     "support":{

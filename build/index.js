@@ -10,30 +10,110 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "metadata": function() { return /* reexport default export from named module */ _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__; },
+/* harmony export */   "metadata": function() { return /* reexport default export from named module */ _social_row_block_json__WEBPACK_IMPORTED_MODULE_3__; },
 /* harmony export */   "name": function() { return /* binding */ name; },
 /* harmony export */   "setting": function() { return /* binding */ setting; }
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./social-row-block.json */ "./src/blocks/social-row-block.json");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./social-row-block.json */ "./src/blocks/social-row-block.json");
+
+
 
 
 const {
   name
-} = _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__;
+} = _social_row_block_json__WEBPACK_IMPORTED_MODULE_3__;
 
 const setting = {
   icon: "smiley",
+  attributes: {
+    accountType: {
+      type: "string",
+      default: "twitter"
+    },
+    twitter: {
+      default: {
+        text: "",
+        account: ""
+      }
+    },
+    tweet: {
+      default: {
+        text: "",
+        message: "",
+        url: ""
+      }
+    },
+    youtube: {
+      default: {
+        text: "",
+        url: ""
+      }
+    }
+  },
 
-  edit() {
-    return;
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Child Element");
+  edit(_ref) {
+    let {
+      attributes,
+      setAttributes
+    } = _ref;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      style: {
+        marginBottom: "40px"
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RadioControl, {
+      label: "Social Media",
+      help: "The type of social media to use",
+      selected: setAttributes.accountType,
+      options: [{
+        label: "Follow on Twitter",
+        value: "twitter"
+      }, {
+        label: "Share a Tweet",
+        value: "tweet"
+      }, {
+        label: "Suscribe on Youtube",
+        value: "youtube"
+      }],
+      onChange: value => setAttributes({
+        accountType: value
+      })
+    })))), attributes.accountType == "twitter" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+      icon: "twitter"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Follow me on Twitter",
+      value: attributes.twitter.text,
+      onChange: value => {
+        setAttributes({
+          twitter: { ...attributes.twitter,
+            text: value
+          }
+        });
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Your Twitter Account",
+      value: attributes.twitter.account,
+      onChange: value => {
+        setAttributes({
+          twitter: { ...attributes.twitter,
+            account: value
+          }
+        });
+      }
+    })), attributes.accountType == "tweet" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+      icon: "twitter"
+    }), attributes.accountType == "youtube" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+      icon: "youtube"
+    }), attributes.twitter.account, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), attributes.twitter.text);
   },
 
   save() {
-    return;
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Child Element");
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps);
   }
 
 };
@@ -48,7 +128,7 @@ const setting = {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Edit; }
+/* harmony export */   "default": function() { return /* binding */ edit; }
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -59,12 +139,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
 
 
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-
 
 const MY_TEMPLATE = [["core/image", {}], ["core/heading", {
   placeholder: "Giveaway Title"
@@ -73,43 +147,11 @@ const MY_TEMPLATE = [["core/image", {}], ["core/heading", {
 }], ["create-block/giveaway-social-row"], ["core/button", {
   placeholder: "Call to Action"
 }]];
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
 
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-
-
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
- *
- * 
- * @return {WPElement} Element to render.
- */
-
-function Edit(_ref) {
-  let {
-    className,
-    attributes,
-    setAttributes
-  } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: className
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+function edit() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     template: MY_TEMPLATE,
-    templateLock: "insert"
+    allowedBlocks: ["create-block/giveaway-social-row"]
   }));
 }
 
@@ -124,23 +166,13 @@ function Edit(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
-/* harmony import */ var _blocks_social_row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blocks/social-row */ "./src/blocks/social-row.js");
-/**
- * Registers a new block provided a unique name and an object defining its behavior.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/save.js");
+/* harmony import */ var _blocks_social_row__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blocks/social-row */ "./src/blocks/social-row.js");
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * All files containing `style` keyword are bundled together. The code used
- * gets applied both to the front of your site and to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
 
 
 /**
@@ -149,63 +181,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Every block starts by registering a new block type definition.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
-
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('create-block/giveaway', {
-  /**
-   * Declarate Attributes to use
-   */
-  attributes: {
-    accounts: {
-      default: {
-        twitter: false,
-        tweet: false,
-        youtube: false,
-        facebook: false
-      }
-    },
-    twitter: {
-      default: {
-        text: '',
-        account: ''
-      }
-    },
-    tweet: {
-      default: {
-        text: '',
-        message: '',
-        url: ''
-      }
-    },
-    youtube: {
-      default: {
-        text: '',
-        url: ''
-      }
-    },
-    facebook: {
-      default: {
-        text: '',
-        url: ''
-      }
-    } // Immediate Reward: Download Link/Button
-    // Enter Giveaway: Store the user's email and actions
-
-  },
-
-  /**
-   * @see ./edit.js
-   */
-  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
-
-  /**
-   * @see ./save.js
-   */
-  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
+  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 /**
  * Child Blocks
@@ -213,9 +191,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)({
-  name: _blocks_social_row__WEBPACK_IMPORTED_MODULE_4__.name,
-  ..._blocks_social_row__WEBPACK_IMPORTED_MODULE_4__.metadata
-}, _blocks_social_row__WEBPACK_IMPORTED_MODULE_4__.setting);
+  name: _blocks_social_row__WEBPACK_IMPORTED_MODULE_5__.name,
+  ..._blocks_social_row__WEBPACK_IMPORTED_MODULE_5__.metadata
+}, _blocks_social_row__WEBPACK_IMPORTED_MODULE_5__.setting);
 
 /***/ }),
 
@@ -237,33 +215,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 
 
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-
-
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
- *
- * @return {WPElement} Element to render.
- */
 
 function save(props) {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null));
 }
 
 /***/ }),
@@ -312,6 +266,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
 /***/ "@wordpress/element":
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
@@ -338,7 +302,7 @@ module.exports = window["wp"]["i18n"];
   \******************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"name":"create-block/giveaway-social-row","title":"Social Row","category":"widgets","icon":"smiley","parents":["create-block/giveaway"],"description":"Add a social media row Giveaway Block","textdomain":"giveaway-social-row","support":{"html":false}}');
+module.exports = JSON.parse('{"name":"create-block/giveaway-social-row","title":"Social Row","category":"widgets","icon":"smiley","parent":["create-block/giveaway"],"description":"Add a social media row Giveaway Block","textdomain":"giveaway-social-row","support":{"html":false}}');
 
 /***/ })
 
