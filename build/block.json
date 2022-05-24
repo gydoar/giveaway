@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Andres Vega - Giveaway",
 	"category": "common",
-	"icon": "share",
 	"description": "Giveaway and Reward Block.",
 	"supports": {
 		"html": false
